@@ -1,14 +1,61 @@
 spring:
-  profiles:
-    active: prod
+  profiles: default
 
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://140.143.66.231:3306/test?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    url: jdbc:mysql://140.143.66.231:3306/test?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false
     username: root
-    password: zero1234!
+    password: Zero_1234
 
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+  freemarker:
+    template-loader-path: classpath:/templates/
+    cache: true
+    check-template-location: true
+    content-type: text/html; charset=UTF-8
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+    suffix: .ftl
+
+#静态文件路径
+  resources:
+    static-locations: classpath:/static/
+
+#日志
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+    com:
+      example: INFO
+#其中com.enjoyor 可以被替换成你需要监听的包
+
+  freemarker:
+    template-loader-path: classpath:/templates/
+    cache: true
+    check-template-location: true
+    content-type: text/html; charset=UTF-8
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+    suffix: .ftl
+
+#静态文件路径
+  resources:
+    static-locations: classpath:/static/
+
+#日志
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+    com:
+      example: INFO
+#其中com.enjoyor 可以被替换成你需要监听的包
